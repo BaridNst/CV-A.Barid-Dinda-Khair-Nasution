@@ -1,0 +1,144 @@
+/* --- CONTAINER UTAMA --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%; /* Cegah overflow ke samping */
+}
+
+.span-2 { grid-column: span 2; }
+
+/* --- STORY SECTION --- */
+.story-text {
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Font fleksibel */
+  line-height: 1.8;
+  color: #ccc;
+  margin-top: 15px;
+  word-wrap: break-word; /* Biar teks ga tembus layar */
+}
+
+.story-text span {
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* --- HEADER ICON --- */
+.header-icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  color: var(--orange);
+  font-size: 1.5rem;
+}
+
+/* --- TIMELINE LOGIC (FIXED RESPONSIVE) --- */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border-left: 2px solid var(--border);
+  padding-left: 25px; /* Tambah padding sedikit */
+  margin-left: 10px;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 18px;
+  background: #121212;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  width: 100%;
+}
+
+.timeline-item:hover {
+  border-color: var(--orange);
+  transform: translateX(8px); /* Kurangi geser biar ga nabrak edge layar */
+  background: rgba(255, 107, 0, 0.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.time-line-dot {
+  position: absolute;
+  left: -33px; /* Posisi presisi terhadap garis */
+  top: 25px;
+  width: 14px;
+  height: 14px;
+  background: var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--orange);
+  z-index: 2;
+  border: 3px solid var(--black); /* Tambah border biar dot kepisah sama garis */
+}
+
+.timeline-item h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.timeline-item p {
+  font-size: 0.85rem;
+  color: var(--grey);
+  margin-bottom: 5px;
+}
+
+.timeline-item span {
+  font-size: 0.75rem;
+  color: var(--orange);
+  font-weight: 800;
+  display: block;
+  letter-spacing: 1px;
+}
+
+/* --- MOBILE RESPONSIVE AUTO --- */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Tumpuk ke bawah */
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .span-2 { grid-column: span 1; }
+  
+  .story-text { 
+    font-size: 1rem;
+    text-align: center; /* Di HP lebih cantik center */
+  }
+
+  .header-icon {
+    justify-content: center; /* Ikon ke tengah di mobile */
+  }
+}
+
+/* KHUSUS IPHONE SE / LAYAR SANGAT KECIL */
+@media (max-width: 400px) {
+  .timeline {
+    padding-left: 20px;
+    margin-left: 5px;
+  }
+  
+  .time-line-dot {
+    left: -28px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline-item {
+    padding: 15px;
+  }
+
+  .timeline-item h4 {
+    font-size: 0.9rem;
+  }
+
+  .timeline-item:hover {
+    transform: translateX(5px); /* Geser dikit aja biar ga off-screen */
+  }
+}

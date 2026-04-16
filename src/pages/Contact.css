@@ -1,0 +1,142 @@
+/* --- CONTAINER UTAMA --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contact-header {
+  text-align: left;
+  grid-column: span 2;
+}
+
+.contact-header h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-top: 10px;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+/* --- LINK CARD STYLE --- */
+.contact-card-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  padding: 30px;
+  background: var(--card);
+  border-radius: 30px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid var(--border);
+  min-width: 0; /* KRUSIAL: Mencegah card melebar keluar layar */
+}
+
+/* Card Instagram jadi penuh di desktop */
+.contact-card-link:nth-child(4) {
+  grid-column: span 2;
+}
+
+.contact-card-link:hover {
+  transform: translateY(-5px) scale(1.01);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 15px 35px -10px var(--accent);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+  flex-shrink: 0; /* Ikon tidak boleh gepeng */
+}
+
+.contact-card-link:hover .contact-icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.contact-details {
+  flex: 1;
+  min-width: 0; /* Supaya teks di dalamnya bisa wrap/patah baris */
+}
+
+.platform-name {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  opacity: 0.6;
+  text-transform: uppercase;
+  display: block;
+}
+
+.platform-value {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  margin-top: 5px;
+  font-weight: 600;
+  word-break: break-all; /* SOLUSI: Teks panjang (Email/IG) akan patah baris */
+  overflow-wrap: break-word;
+}
+
+.arrow-icon {
+  font-size: 1.2rem;
+  opacity: 0.2;
+  transition: 0.3s;
+  flex-shrink: 0;
+}
+
+.contact-card-link:hover .arrow-icon {
+  opacity: 1;
+  color: var(--accent);
+  transform: translate(5px, -5px);
+}
+
+/* --- RESPONSIVE AUTO --- */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr; /* Tumpuk satu kolom */
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .contact-header,
+  .contact-card-link:nth-child(4) {
+    grid-column: span 1;
+    text-align: center;
+  }
+
+  .contact-card-link {
+    padding: 25px;
+    flex-direction: row; /* Tetap horizontal kecuali di layar sangat kecil */
+    text-align: left;
+  }
+
+  .contact-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* KHUSUS IPHONE SE / SMARTPHONE KECIL */
+@media (max-width: 420px) {
+  .contact-card-link {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .contact-icon {
+    font-size: 1.8rem;
+  }
+
+  .arrow-icon {
+    display: none; /* Sembunyikan panah agar ruang teks lebih luas */
+  }
+
+  .platform-value {
+    font-size: 0.85rem;
+  }
+}

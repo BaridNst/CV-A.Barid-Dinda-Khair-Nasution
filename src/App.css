@@ -1,0 +1,47 @@
+:root {
+  --black: #050505;
+  --card: #0f0f0f;
+  --border: #1f1f1f;
+  --orange: #FF6B00;
+  --white: #ffffff;
+  --grey: #888;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--black); color: var(--white); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+.app-layout { display: flex; width: 100%; min-height: 100vh; }
+
+/* SIDEBAR DESKTOP */
+.sidebar {
+  width: 250px; background: #080808; border-right: 1px solid var(--border);
+  position: fixed; height: 100vh; padding: 40px 20px; z-index: 1000;
+  transition: transform 0.4s ease;
+}
+.logo { font-size: 1.5rem; font-weight: 900; margin-bottom: 40px; }
+.logo span { color: var(--orange); }
+.sidebar-nav { display: flex; flex-direction: column; gap: 10px; }
+.sidebar-nav a { color: var(--grey); text-decoration: none; padding: 12px 20px; border-radius: 12px; font-weight: 600; }
+.sidebar-nav a.active { color: var(--orange); background: rgba(255, 107, 0, 0.1); }
+
+/* MAIN VIEWPORT */
+.main-viewport { 
+  margin-left: 250px; /* Jarak sidebar desktop */
+  flex: 1; padding: 40px; transition: 0.4s; min-width: 0; 
+}
+
+/* MOBILE SETTINGS */
+.hamburger { display: none; }
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 900; }
+
+@media (max-width: 1000px) {
+  .sidebar { transform: translateX(-100%); width: 280px; }
+  .main-viewport { margin-left: 0 !important; padding: 80px 20px 20px; }
+  .hamburger { 
+    display: flex; position: fixed; top: 20px; right: 20px; z-index: 1100;
+    background: var(--orange); color: white; border: none; width: 45px; height: 45px;
+    border-radius: 12px; align-items: center; justify-content: center; font-size: 1.5rem;
+  }
+  .nav-active .sidebar { transform: translateX(0); }
+  .nav-active .overlay { display: block; backdrop-filter: blur(5px); }
+}

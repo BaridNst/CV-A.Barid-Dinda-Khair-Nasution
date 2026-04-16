@@ -1,0 +1,168 @@
+/* --- CONTAINER UTAMA --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.project-header {
+  text-align: left;
+  grid-column: span 2; /* Pastikan header selalu penuh di desktop */
+}
+
+.loading-state {
+  grid-column: span 2;
+  text-align: center;
+  padding: 50px;
+  color: var(--orange);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+/* --- CARD PROJECT ULTRA --- */
+.project-card-ultra {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  overflow: hidden;
+  background: var(--card); /* Pastikan background terisi */
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 30px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  min-width: 0; /* Cegah card meledak lebarnya karena teks */
+}
+
+.project-card-ultra:hover {
+  border-color: var(--orange);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 107, 0, 0.15);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-icon {
+  font-size: 1.8rem;
+  color: var(--orange);
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.project-title {
+  font-size: clamp(1.1rem, 3vw, 1.3rem); /* Font dinamis */
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: 800;
+  word-break: break-word; /* Cegah judul panjang merusak grid */
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: #aaa;
+  line-height: 1.6;
+  min-height: 50px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Batasi maksimal 3 baris deskripsi */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- FOOTER & BUTTON --- */
+.project-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 15px;
+}
+
+.lang-tag {
+  background: rgba(255, 107, 0, 0.05);
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--orange);
+  border: 1px solid rgba(255, 107, 0, 0.2);
+  white-space: nowrap;
+}
+
+.btn-github-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: #151515;
+  padding: 10px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.btn-github-link:hover {
+  background: var(--orange);
+  color: #fff;
+  transform: scale(1.05);
+  border-color: var(--orange);
+}
+
+/* --- MOBILE RESPONSIVE AUTO --- */
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* Jadi satu kolom */
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .project-header, .loading-state {
+    grid-column: span 1;
+    text-align: center;
+  }
+
+  .project-card-ultra {
+    padding: 25px;
+  }
+}
+
+/* KHUSUS IPHONE SE / LAYAR SANGAT KECIL */
+@media (max-width: 400px) {
+  .project-title { 
+    font-size: 1.1rem; 
+  }
+
+  .project-footer {
+    flex-direction: column; /* Tombol dan tag tumpuk vertikal di HP kecil */
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .btn-github-link {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .lang-tag {
+    align-self: flex-start;
+  }
+}
