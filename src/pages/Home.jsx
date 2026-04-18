@@ -31,7 +31,7 @@ export default function Home() {
           <img src="https://cdn.corenexis.com/files/c/3518643720.png" alt="Barid" className="hex-img" />
         </div>
         <div className="hero-content">
-          <span className="badge-animated">PROMPT ENGINEER</span>
+          <span className="badge-animated">MAHASISWA TEKNOLOGI INGORMASI</span>
           <h1>Barid <span className="text-gradient">Nst</span></h1>
           <p>Transforming complex logic into elegant digital experiences.</p>
         </div>

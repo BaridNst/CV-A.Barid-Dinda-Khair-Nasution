@@ -4,7 +4,7 @@ import './About.css';
 
 export default function About() {
   const career = [
-    { role: "Prompt Engineer", company: "CoreNexis", year: "2024 - Present" },
+    { role: "UI/UX Design", company: "Freelance", year: "2024 - Present" },
     { role: "Web Developer", company: "Freelance", year: "2023 - 2024" }
   ];
 
@@ -19,7 +19,7 @@ export default function About() {
       <div className="bento-card span-2">
         <h3 className="label">MY STORY</h3>
         <p className="story-text">
-          Saya adalah seorang <span>Prompt Engineer</span> dan <span>Web Developer</span> yang berfokus pada efisiensi teknologi. 
+          Saya adalah seorang <span>Mahasiswa Teknologi Informasi</span> dan <span>Web Developer Junior</span> yang berfokus pada efisiensi teknologi. 
           Membangun jembatan antara logika mesin dan kebutuhan manusia adalah gairah utama saya.
         </p>
       </div>
