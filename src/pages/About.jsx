@@ -5,7 +5,7 @@ import './About.css';
 export default function About() {
   const career = [
     { role: "UI/UX Design", company: "Freelance", year: "2024 - Present" },
-    { role: "Web Developer", company: "Freelance", year: "2023 - 2024" }
+    { role: "Web Developer", company: "Freelance", year: "2023 - Present" }
   ];
 
   const education = [
