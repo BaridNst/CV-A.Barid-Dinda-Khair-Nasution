@@ -1,32 +1,13 @@
-import React from 'react';
-import { SiWhatsapp, SiInstagram, SiGmail } from 'react-icons/si';
+import React, { useContext } from 'react';
 import { HiOutlineExternalLink } from 'react-icons/hi';
+import { CvContext } from '../context/CvContext';
+import { getIcon } from '../utils/IconMap';
 import './Contact.css';
 
 export default function Contact() {
-  const contactData = [
-    {
-      platform: "WhatsApp",
-      value: "085212583609",
-      link: "https://wa.me/6285212583609",
-      icon: <SiWhatsapp />,
-      color: "#25D366"
-    },
-    {
-      platform: "Email",
-      value: "baridnst23@gmail.com",
-      link: "mailto:baridnst23@gmail.com",
-      icon: <SiGmail />,
-      color: "#EA4335"
-    },
-    {
-      platform: "Instagram",
-      value: "@a.baridnasution",
-      link: "https://www.instagram.com/a.baridnasution?igsh=bzAxaGZhZDkxYjVh",
-      icon: <SiInstagram />,
-      color: "#E1306C"
-    }
-  ];
+  const { data, loading } = useContext(CvContext);
+
+  if (loading) return <div className="contact-grid">Loading...</div>;
 
   return (
     <div className="contact-grid">
@@ -35,7 +16,7 @@ export default function Contact() {
         <h1>Mari Berdiskusi Tentang <span className="highlight">Project</span> Anda</h1>
       </div>
 
-      {contactData.map((item, index) => (
+      {data.contacts && data.contacts.map((item, index) => (
         <a 
           href={item.link} 
           key={index} 
@@ -45,7 +26,7 @@ export default function Contact() {
           style={{ "--accent": item.color }}
         >
           <div className="contact-icon" style={{ color: item.color }}>
-            {item.icon}
+            {getIcon(item.icon)}
           </div>
           <div className="contact-details">
             <span className="platform-name">{item.platform}</span>

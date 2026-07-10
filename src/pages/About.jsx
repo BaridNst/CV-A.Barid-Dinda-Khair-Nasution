@@ -1,17 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HiOutlineBriefcase, HiOutlineAcademicCap } from 'react-icons/hi';
+import { CvContext } from '../context/CvContext';
 import './About.css';
 
 export default function About() {
-  const career = [
-    { role: "UI/UX Design", company: "Freelance", year: "2024 - Present" },
-    { role: "Web Developer", company: "Freelance", year: "2023 - Present" }
-  ];
+  const { data, loading } = useContext(CvContext);
 
-  const education = [
-    { degree: "S1 Teknologi Informasi", school: "UIN Ar-Raniry", year: "2023 - 2026" },
-    { degree: "Fullstack Bootcamp", school: "Dicoding", year: "2023" }
-  ];
+  if (loading) return <div className="about-grid">Loading...</div>;
 
   return (
     <div className="about-grid">
@@ -19,8 +14,7 @@ export default function About() {
       <div className="bento-card span-2">
         <h3 className="label">MY STORY</h3>
         <p className="story-text">
-          Saya adalah seorang <span>Mahasiswa Teknologi Informasi</span> dan <span>Web Developer Junior</span> yang berfokus pada efisiensi teknologi. 
-          Membangun jembatan antara logika mesin dan kebutuhan manusia adalah gairah utama saya.
+          {data.profile.story || "Saya adalah seorang Web Developer..."}
         </p>
       </div>
 
@@ -31,12 +25,12 @@ export default function About() {
           <h3 className="label">CAREER</h3>
         </div>
         <div className="timeline">
-          {career.map((item, index) => (
+          {data.career && data.career.map((item, index) => (
             <div key={index} className="timeline-item">
               <div className="time-line-dot"></div>
-              <h4>{item.role}</h4>
-              <p>{item.company}</p>
-              <span>{item.year}</span>
+              <h4>{item.title}</h4>
+              <p>{item.organization}</p>
+              <span>{item.year_range}</span>
             </div>
           ))}
         </div>
@@ -49,12 +43,12 @@ export default function About() {
           <h3 className="label">EDUCATION</h3>
         </div>
         <div className="timeline">
-          {education.map((item, index) => (
+          {data.education && data.education.map((item, index) => (
             <div key={index} className="timeline-item">
               <div className="time-line-dot"></div>
-              <h4>{item.degree}</h4>
-              <p>{item.school}</p>
-              <span>{item.year}</span>
+              <h4>{item.title}</h4>
+              <p>{item.organization}</p>
+              <span>{item.year_range}</span>
             </div>
           ))}
         </div>
