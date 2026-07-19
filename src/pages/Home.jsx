@@ -14,7 +14,7 @@ export default function Home() {
       <div className="bento-card hero-ultra">
         <div className="profile-hex">
           <div className="hex-glow"></div>
-          <img src={data.profile.photo_url || "https://cdn.corenexis.com/files/c/3518643720.png"} alt="Barid" className="hex-img" />
+          <img src={data.profile.photo_url || "/Barid.png"} alt="Barid" className="hex-img" />
         </div>
         <div className="hero-content">
           <span className="badge-animated">{data.profile.title || "MAHASISWA"}</span>

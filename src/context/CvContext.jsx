@@ -17,7 +17,7 @@ export const CvProvider = ({ children }) => {
     profile: {
       full_name: 'Barid Nst',
       title: 'Mahasiswa Teknologi Informasi & Web Developer Junior',
-      photo_url: 'https://cdn.corenexis.com/files/c/3518643720.png',
+      photo_url: '/Barid.png',
       story: 'Saya adalah seorang Mahasiswa Teknologi Informasi dan Web Developer Junior yang berfokus pada efisiensi teknologi. Membangun jembatan antara logika mesin dan kebutuhan manusia adalah gairah utama saya.'
     },
     skills: [

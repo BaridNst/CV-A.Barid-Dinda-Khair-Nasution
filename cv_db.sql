@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS profile (
 );
 
 INSERT INTO profile (full_name, title, photo_url, story) VALUES 
-('Barid Nst', 'Mahasiswa Teknologi Informasi & Web Developer Junior', 'https://cdn.corenexis.com/files/c/3518643720.png', 'Saya adalah seorang Mahasiswa Teknologi Informasi dan Web Developer Junior yang berfokus pada efisiensi teknologi. Membangun jembatan antara logika mesin dan kebutuhan manusia adalah gairah utama saya.');
+('Barid Nst', 'Mahasiswa Teknologi Informasi & Web Developer Junior', '/Barid.png', 'Saya adalah seorang Mahasiswa Teknologi Informasi dan Web Developer Junior yang berfokus pada efisiensi teknologi. Membangun jembatan antara logika mesin dan kebutuhan manusia adalah gairah utama saya.');
 
 -- 4. Tabel Skills
 CREATE TABLE IF NOT EXISTS skills (
